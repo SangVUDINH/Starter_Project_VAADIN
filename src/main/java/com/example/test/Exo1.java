@@ -1,9 +1,11 @@
 package com.example.test;
 
-import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.OptionalParameter;
 
 public class Exo1 extends VerticalLayout {
 	
@@ -49,7 +51,8 @@ public class Exo1 extends VerticalLayout {
 		navigation.getElement().getStyle().set("flexShrink", "0");
 		navigation.setText("This is the navigation area. My width is 25% of the application layout.");
 		
-		content = new Div();		
+		content = new Div();
+		content.setHeightFull();
 		content.getStyle().set("display","flex");			
 		content.setClassName("content");
 		content.setText("This is the content Area");
@@ -60,6 +63,45 @@ public class Exo1 extends VerticalLayout {
 		layout.add(navigation, content);
 		
 		layout.setDefaultVerticalComponentAlignment(Alignment.STRETCH);
+		
+		updateUIForScroll();
 			
 	}
+	
+	private Div createBlock() {
+		final Div button = new Div();
+		button.setText("Block");
+		button.getStyle().set("background", "white");
+		button.getStyle().set("margin", "5px");
+		button.setHeight("100px");
+		button.setWidth("100px");
+		
+		return button;
+	}
+	
+	
+	public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
+		if("scroll".contentEquals(parameter)) {
+			updateUIForScroll();
+		}
+	}
+	
+	private void updateUIForScroll() {
+		final Button add = new Button("Add", e-> {
+			content.add(createBlock());
+		});
+		
+		navigation.setText(null);
+		content.setText(null);
+		navigation.add(add);
+		
+		makeContentScrollable();
+	}
+	
+	private void makeContentScrollable() {
+		content.getStyle().set("flexWrap", "wrap");
+		content.getStyle().set("overFlowY", "auto");
+	}
+	
+	
 }
