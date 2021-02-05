@@ -10,3 +10,20 @@
   max-width: 250px;
 }
 
+.content {
+	background-color: red;
+	height:500px;
+}
+
+.navigation {
+	background-color: blue;
+}
+
+.header {
+	background-color: yellow;
+}
+
+.footer {
+	background-color: grey;
+}
+

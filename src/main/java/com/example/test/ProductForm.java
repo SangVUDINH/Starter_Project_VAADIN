@@ -19,7 +19,7 @@ public class ProductForm extends VerticalLayout {
 		add(new TextArea("Description"));
 		
 		NumberField price = new NumberField("Price");
-		price.setSuffixComponent(new Span("$"));
+
 		price.setStep(0.01);		
 		add(price);
 		
