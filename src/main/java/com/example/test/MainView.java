@@ -63,7 +63,8 @@ public class MainView extends VerticalLayout {
         */
     	
     	//add(new Exo1());    	
-    	add(new FormLayoutEXO() );
+    	//add(new FormLayoutEXO() );
+    	add(new Validation() );
     }
 
 }
