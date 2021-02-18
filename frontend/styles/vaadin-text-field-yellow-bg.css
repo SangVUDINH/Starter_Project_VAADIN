@@ -1,0 +1,6 @@
+
+
+
+:host([theme~="yellowBg"]) [part="input-field"] {
+	background-color: yellow;
+}

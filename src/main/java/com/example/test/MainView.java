@@ -2,13 +2,18 @@ package com.example.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.vaadin.flow.component.Composite;
+import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLayout;
+import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.PWA;
 
-import dataGridList.CreateDataProdiver;
-import dataProviderFiltre.FilteringDataProvider;
+import RouterAPItest.HomeView;
+import RouterAPItest.LotteryView;
 
 /**
  * A sample Vaadin view class.
@@ -22,14 +27,14 @@ import dataProviderFiltre.FilteringDataProvider;
  * A new instance of this class is created for every new user and every
  * browser tab/window.
  */
-@Route
+//@Route
 @PWA(name = "Vaadin Application",
         shortName = "Vaadin App",
         description = "This is an example Vaadin application.",
         enableInstallPrompt = false)
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
-public class MainView extends VerticalLayout {
+public class MainView extends  Composite<VerticalLayout> implements HasComponents {
 
     /**
      * Construct a new Vaadin view.
@@ -47,7 +52,14 @@ public class MainView extends VerticalLayout {
     	//add(new BindingForms() );
     	//add(new BindingForms2() );
     	//add(new CreateDataProdiver() );
-    	add(new FilteringDataProvider() );
+    	//add(new FilteringDataProvider() );
+    	//add(new BackEndDataProvider() );
+    	//add(new LotteryView() );
+    	
+    	//routerLINK
+    	
+    	
+    	
     	
     	
     }
