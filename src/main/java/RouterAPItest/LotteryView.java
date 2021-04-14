@@ -22,10 +22,16 @@ import com.vaadin.flow.router.Route;
 @Route(value="lottery", layout = MainLayout.class)
 public class LotteryView extends Composite<VerticalLayout> implements HasComponents, HasUrlParameter<Integer> ,BeforeLeaveObserver {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final Div lotteryResult = new Div();
 	private final TextField numberInput = new TextField();
 	
 	public LotteryView () {
+		setId("lottery-view");
+		
 		add( new H2("Lottery View"));
 		
 		HorizontalLayout inputBar = new HorizontalLayout();
@@ -52,6 +58,8 @@ public class LotteryView extends Composite<VerticalLayout> implements HasCompone
 		);
 		inputBar.add(button);
 		
+		
+		lotteryResult.setId("div-result");
 		add(inputBar);
 		add(lotteryResult);
 		
@@ -69,7 +77,7 @@ public class LotteryView extends Composite<VerticalLayout> implements HasCompone
 			}else{
 				builder.append("Sorry, better luck next time. ");
 			}
-			builder.append("Your number is: ").append(number).append(", the lucky number is:").append(luckyNumber);
+			//builder.append("Your number is: ").append(number).append(", the lucky number is:").append(luckyNumber);
 
 			lotteryResult.setText(builder.toString());
 		}
